@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import Button from 'antd/es/button';
+import 'antd/dist/antd.css';
 
-class App extends Component {
+class about extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="about">
         <Button type="primary">Button</Button>
+        about
       </div>
     );
   }
 }
 
-export default App;
+export default about;
