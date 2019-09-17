@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import Button from 'antd/es/button';
-import 'antd/dist/antd.css';
+import Button from 'antd/es/button';
 import './index.scss';
 
 class index extends Component {
@@ -14,15 +13,16 @@ class index extends Component {
     console.log(1)
   }
   btnFn = () => {
-    // this.props.history.push('/home/article')
-    this.setState(state => ({
-      isToggleOn: !state.isToggleOn
-    }))
+    this.props.history.push('/home/article')
+    // this.setState(state => ({
+    //   isToggleOn: !state.isToggleOn
+    // }))
   }
   render () {
     return (
       <div className="index">
-        <i className="iconfont icon-qiqiu"></i>
+        {/* <i className="iconfont icon-reqiqiu1"></i> */}
+        <Button onClick={this.btnFn}> 开始 </Button>
       </div>
     );
   }

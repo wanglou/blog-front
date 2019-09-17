@@ -1,9 +1,11 @@
 // import 'react-app-polyfill/ie11';
-import 'core-js/es/map';
-import 'core-js/es/set';
+// import 'core-js/es/map';
+// import 'core-js/es/set';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'antd/dist/antd.css';
 import './index.css';
+import './fonts/index.scss';
 import * as serviceWorker from './serviceWorker';
 import Router from './router'
 ReactDOM.render(<Router/>, document.getElementById('root'));

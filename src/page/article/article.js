@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import Button from 'antd/es/button';
-import 'antd/dist/antd.css';
-import './article.scss';
+// import Button from 'antd/es/button';
+import './article.scss'
 
 class article extends Component {
   render() {
     return (
       <div className="article">
-        <Button type="primary">Button</Button>
+        {/* <Button type="primary">Button</Button> */}
         article
       </div>
     );
