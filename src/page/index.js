@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Button from 'antd/es/button';
+// import Button from 'antd/es/button';
 import 'antd/dist/antd.css';
+import './index.scss';
 
 class index extends Component {
   constructor(props) {
@@ -8,6 +9,9 @@ class index extends Component {
     this.state = {
       isToggleOn: true
     };
+  }
+  componentDidMount() {
+    console.log(1)
   }
   btnFn = () => {
     // this.props.history.push('/home/article')
@@ -18,8 +22,7 @@ class index extends Component {
   render () {
     return (
       <div className="index">
-        <Button onClick={this.btnFn}> toggle </Button>
-        {this.state.isToggleOn ? 'ON' : 'OFF'}
+        <i className="iconfont icon-qiqiu"></i>
       </div>
     );
   }
