@@ -20,9 +20,20 @@ class index extends Component {
   render () {
     return (
       <div className="index">
-        <i className="qiqiu1 iconfont icon-reqiqiu" onClick={this.btnFn}></i>
-        <i className="qiqiu2 iconfont icon-reqiqiu" onClick={this.btnFn}></i>
-        <i className="qiqiu3 iconfont icon-reqiqiu" onClick={this.btnFn}></i>
+        <p>
+          <span>
+            <img onClick={this.btnFn} src={require('../images/meng_4.png')} alt="黄粱一梦"></img>
+          </span>
+          <span>
+            <img onClick={this.btnFn} src={require('../images/meng_3.png')} alt="黄粱一梦"></img>
+          </span>
+          <span>
+            <img onClick={this.btnFn} src={require('../images/meng_2.png')} alt="黄粱一梦"></img>
+          </span>
+          <span>
+            <img onClick={this.btnFn} src={require('../images/meng_1.png')} alt="黄粱一梦"></img>
+          </span>
+        </p>
       </div>
     );
   }
