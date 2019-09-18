@@ -16,13 +16,31 @@
       cursor: pointer;
     }
   }
-  ul {
+  &>ul {
     width: 700px;
     list-style: none;
     float: left;
     padding-left: 20px;
     li {
       margin: 20px 0;
+      h3 {
+        font-weight: bold;
+        span {
+          display: inline-block;
+          padding: 0 10px;
+          cursor: pointer;
+          border-left: 3px solid #262626;
+          &:hover {
+            background: #262626;
+            color: #fff;
+          }
+        }
+      }
+      &>p:nth-child(3) {
+        span {
+          margin-right: 20px;
+        }
+      }
     }
   }
 }
