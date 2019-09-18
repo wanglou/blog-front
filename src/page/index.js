@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Button from 'antd/es/button';
 import './index.scss';
 
 class index extends Component {
@@ -21,8 +20,9 @@ class index extends Component {
   render () {
     return (
       <div className="index">
-        {/* <i className="iconfont icon-reqiqiu1"></i> */}
-        <Button onClick={this.btnFn}> 开始 </Button>
+        <i className="qiqiu1 iconfont icon-reqiqiu" onClick={this.btnFn}></i>
+        <i className="qiqiu2 iconfont icon-reqiqiu" onClick={this.btnFn}></i>
+        <i className="qiqiu3 iconfont icon-reqiqiu" onClick={this.btnFn}></i>
       </div>
     );
   }

@@ -1,3 +1,28 @@
 .article {
-  text-align: center;
+  width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  &>div {
+    width: 200px;
+    margin-top: 30px;
+    float: left;
+    span {
+      display: inline-block;
+      margin: 5px;
+      padding: 0 10px;
+      border-radius: 3px;
+      background: #878E91;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+  ul {
+    width: 700px;
+    list-style: none;
+    float: left;
+    padding-left: 20px;
+    li {
+      margin: 20px 0;
+    }
+  }
 }

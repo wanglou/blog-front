@@ -13,8 +13,37 @@ const navList= [
   { name: '留言墙', path: '/home/wall' }
 ]
 class home extends Component {
-  navRoute (item) {
+  constructor(props) {
+    super(props);
+    this.state = {
+      navActive: 0
+    };}
+  navRoute (item, index) {
     this.props.history.push(item.path)
+    this.setState({
+      navActive: index
+    })
+  }
+  componentDidMount() {
+    const start = window.location.href.indexOf('#/')
+    const url = window.location.href.slice(start + 1)
+    navList.forEach((item, index) => {
+      if (item.path === url) {
+       this.setState({
+         navActive: index
+       })
+     }
+    })
+    // 监听路由
+    this.props.history.listen((route) => {
+      navList.forEach((item, index) => {
+          if (item.path === route.pathname) {
+          this.setState({
+            navActive: index
+          })
+        }
+      })
+    })
   }
   render() {
     return (
@@ -22,15 +51,20 @@ class home extends Component {
         <header>
           <ul>
             { navList.map((item, index) => {
-              return <li onClick={this.navRoute.bind(this, item)} key={index}>
+              return <li className={this.state.navActive === index ? 'active' : ''} onClick={this.navRoute.bind(this, item, index)} key={index}>
                 <span>{item.name}</span>
               </li>
             }) }
           </ul>
         </header>
-        <Route path="/home/article" component={article}></Route>
-        <Route path="/home/about" component={about}></Route>
-        <Route path="/home/wall" component={wall}></Route>
+        <main>
+          <Route path="/home/article" component={article}></Route>
+          <Route path="/home/about" component={about}></Route>
+          <Route path="/home/wall" component={wall}></Route>
+        </main>
+        <footer>
+          created by wanglou
+        </footer>
       </div>
     );
   }
