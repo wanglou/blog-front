@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import Button from 'antd/es/button';
 import './home.scss'
-import { Route } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 import article from '../page/article/article'
 import readArticle from '../page/article/readArticle'
 import about from '../page/about/about'
@@ -10,7 +10,7 @@ import wall from '../page/wall/wall'
 // 顶部导航
 const navList= [
   { name: '文章', path: '/home/article' },
-  { name: '关于我', path: '/home/about' },
+  // { name: '关于我', path: '/home/about' },
   { name: '留言墙', path: '/home/wall' }
 ]
 class home extends Component {
@@ -26,17 +26,14 @@ class home extends Component {
     })
   }
   componentDidMount() {
-    const start = window.location.href.indexOf('#/')
-    const url = window.location.href.slice(start + 1)
-    navList.forEach((item, index) => {
-      if (item.path === url) {
-       this.setState({
-         navActive: index
-       })
-     }
-    })
     // 监听路由
     this.props.history.listen((route) => {
+      if (route.pathname === '/home/about') {
+        this.setState({
+          navActive: ''
+        })
+        return
+      }
       navList.forEach((item, index) => {
           if (item.path === route.pathname) {
           this.setState({
@@ -44,6 +41,21 @@ class home extends Component {
           })
         }
       })
+    })
+    const start = window.location.href.indexOf('#/')
+    const url = window.location.href.slice(start + 1)
+    if (url === '/home/about') {
+      this.setState({
+        navActive: ''
+      })
+      return
+    }
+    navList.forEach((item, index) => {
+      if (item.path === url) {
+       this.setState({
+         navActive: index
+       })
+     }
     })
   }
   render() {
@@ -65,7 +77,7 @@ class home extends Component {
           <Route path="/home/wall" component={wall}></Route>
         </main>
         <footer>
-          created by wanglou
+          created by <Link to="/home/about">wanglou</Link>
         </footer>
       </div>
     );

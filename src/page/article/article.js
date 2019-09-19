@@ -67,6 +67,7 @@ class article extends Component {
   render() {
     return (
       <div className="article">
+        {/* 标签循环 */}
         <div>
           { this.state.typeList.map((item, index) => {
             return <span key={index} className={this.state.categoryId === item.id ? 'active' : null} onClick={this.selectCategory.bind(this, item)}>
@@ -74,6 +75,7 @@ class article extends Component {
             </span>
           }) }
         </div>
+        {/* 文章列表循环 */}
         <ul>
           { this.state.activeList.map((item, index) => {
             return <li key={index}>
@@ -97,6 +99,12 @@ class article extends Component {
               </p>
             </li>
           }) }
+          {/* 无数据展示 */}
+          {this.state.activeList.length === 0 &&
+            <p>
+              该标签下暂时没有文章！
+            </p>
+          }
         </ul>
       </div>
     );
