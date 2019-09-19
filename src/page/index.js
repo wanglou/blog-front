@@ -9,7 +9,6 @@ class index extends Component {
     };
   }
   componentDidMount() {
-    console.log(1)
   }
   btnFn = () => {
     this.props.history.push('/home/article')

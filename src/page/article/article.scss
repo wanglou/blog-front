@@ -2,6 +2,7 @@
   width: 1000px;
   margin: 0 auto;
   overflow: hidden;
+  // 标签
   &>div {
     width: 200px;
     margin-top: 30px;
@@ -11,11 +12,15 @@
       margin: 5px;
       padding: 0 10px;
       border-radius: 3px;
-      background: #878E91;
-      color: #fff;
       cursor: pointer;
+      border: 1px solid #878E91;
+      &.active {
+        background: #878E91;
+        color: #fff;
+      }
     }
   }
+  // 文章
   &>ul {
     width: 700px;
     list-style: none;

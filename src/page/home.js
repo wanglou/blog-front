@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './home.scss'
 import { Route } from 'react-router-dom'
 import article from '../page/article/article'
+import readArticle from '../page/article/readArticle'
 import about from '../page/about/about'
 import wall from '../page/wall/wall'
 
@@ -59,6 +60,7 @@ class home extends Component {
         </header>
         <main>
           <Route path="/home/article" component={article}></Route>
+          <Route path="/home/readArticle/:id" component={readArticle}></Route>
           <Route path="/home/about" component={about}></Route>
           <Route path="/home/wall" component={wall}></Route>
         </main>
