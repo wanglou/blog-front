@@ -10,8 +10,7 @@ import wall from '../page/wall/wall'
 // 顶部导航
 const navList= [
   { name: '文章', path: '/home/article' },
-  // { name: '关于我', path: '/home/about' },
-  { name: '留言墙', path: '/home/wall' }
+  { name: '留言', path: '/home/wall' }
 ]
 class home extends Component {
   constructor(props) {

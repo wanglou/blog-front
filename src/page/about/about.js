@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 // import Button from 'antd/es/button';
 import './about.scss'
-
 class about extends Component {
   render() {
     return (
