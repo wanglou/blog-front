@@ -6,7 +6,11 @@ class wall extends Component {
   render () {
     return (
       <div className="wall">
-        wall
+        <div className="header">
+          <span>
+            click me
+          </span>
+        </div>
       </div>
     );
   }
