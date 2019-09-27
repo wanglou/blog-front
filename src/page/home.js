@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import Button from 'antd/es/button';
 import './home.scss'
+import './reset.scss'
 import { Route, Link } from 'react-router-dom'
 import article from '../page/article/article'
 import readArticle from '../page/article/readArticle'
