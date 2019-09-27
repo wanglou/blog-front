@@ -16,6 +16,16 @@ class wall extends Component {
       addShow: !this.state.addShow
     })
   }
+  contentChange = ({target: {value}}) => {
+    this.setState({
+      contentValue: value
+    })
+  }
+  nameChange = ({target: {value}}) => {
+    this.setState({
+      nameValue: value
+    })
+  }
   render () {
     return (
       <div className="wall">
@@ -25,10 +35,10 @@ class wall extends Component {
           </p>
           <div className={this.state.addShow ? 'show' : ''}>
             <p>
-              <Input.TextArea autosize={{ minRows: 6, maxRows: 7 }} value={this.state.contentValue} placeholder="请输入内容 必填"/>
+              <Input.TextArea maxLength={200} onChange={this.contentChange} autosize={{ minRows: 6, maxRows: 7 }} value={this.state.contentValue} placeholder="请输入内容 必填"/>
             </p>
             <p>
-              <Input value={this.state.nameValue} placeholder="请输入名称 非必填"/>
+              <Input maxLength={20} onChange={this.nameChange} value={this.state.nameValue} placeholder="请输入名称 非必填"/>
             </p>
             <Button> 提 交 </Button>
             <Button> 关 闭 </Button>
