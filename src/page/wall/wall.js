@@ -41,7 +41,7 @@ class wall extends Component {
               <Input maxLength={20} onChange={this.nameChange} value={this.state.nameValue} placeholder="请输入名称 非必填"/>
             </p>
             <Button> 提 交 </Button>
-            <Button> 关 闭 </Button>
+            <Button> 关闭 </Button>
           </div>
         </div>
       </div>
