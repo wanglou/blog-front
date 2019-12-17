@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Icon } from 'antd';
 import './readArticle.scss'
 import service from '../../api/index'
 import * as filter from '../../utils/index'
@@ -25,7 +26,10 @@ class readArticle extends Component {
   render() {
     return (
       <div className="read-article">
-        <h2>{this.state.detail.title}</h2>
+        <h2>
+          <Icon onClick={() => {this.props.history.push('/home/article')}} type="rollback"/>
+          {this.state.detail.title}
+        </h2>
         <p>
           <span>
             创建时间：{ filter.dateFormat(this.state.detail.creatTime, 'yyyy-MM-dd HH:mm:ss') }
