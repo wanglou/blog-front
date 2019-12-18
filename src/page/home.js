@@ -63,6 +63,11 @@ class home extends Component {
       <div className="home">
         <header>
           <ul>
+            <li>
+              <img onClick={() => {
+                this.props.history.push('/index')
+              }} src={require('../images/logo.png')} alt="黄粱一梦"/>
+            </li>
             { navList.map((item, index) => {
               return <li className={this.state.navActive === index ? 'active' : ''} onClick={this.navRoute.bind(this, item, index)} key={index}>
                 <span>{item.name}</span>

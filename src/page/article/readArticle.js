@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Icon } from 'antd';
+import marked from 'marked';
 import './readArticle.scss'
 import service from '../../api/index'
 import * as filter from '../../utils/index'
@@ -16,6 +17,9 @@ class readArticle extends Component {
     let data = await service.article.articleDetail({
       articleId: this.props.match.params.id
     })
+    if (data.result.type === 2) {
+      data.result.content = marked(data.result.content)
+    }
     this.setState({
       detail: data.result
     })

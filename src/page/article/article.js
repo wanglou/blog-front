@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import marked from 'marked';
 import { Spin } from 'antd';
 import './article.scss'
 import service from '../../api/index'
@@ -23,6 +24,9 @@ class article extends Component {
       categoryId: this.state.categoryId
     })
     data.result.forEach(item => {
+      if (item.type === 2) {
+        item.content = marked(item.content)
+      }
       this.state.typeList.forEach(child => {
         if (item.categoryId === child.id) {
           item.categoryName = child.name
@@ -98,7 +102,7 @@ class article extends Component {
               </li>
             }) }
             {/* 无数据展示 */}
-            {this.state.activeList.length === 0 &&
+            {this.state.activeList.length === 0 && this.state.categoryId &&
               <p>
                 该标签下暂时没有文章！
               </p>
