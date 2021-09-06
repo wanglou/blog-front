@@ -1,32 +1,30 @@
 import React, { Component } from 'react';
-import { Input, Button } from 'antd';
+import { Input, Button, Form } from 'antd';
 import './wall.scss';
 
 class wall extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      contentValue: '',
-      nameValue: '',
-      addShow: true
+      addShow: false
     };
   }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+      }
+    })
+  }
+
   addShow () {
     this.setState({
       addShow: !this.state.addShow
     })
   }
-  contentChange = ({target: {value}}) => {
-    this.setState({
-      contentValue: value
-    })
-  }
-  nameChange = ({target: {value}}) => {
-    this.setState({
-      nameValue: value
-    })
-  }
   render () {
+    const { getFieldDecorator } = this.props.form;
     return (
       <div className="wall">
         <div className="header">
@@ -34,19 +32,42 @@ class wall extends Component {
             click me
           </p>
           <div className={this.state.addShow ? 'show' : ''}>
-            <p>
-              <Input.TextArea maxLength={200} onChange={this.contentChange} autosize={{ minRows: 6, maxRows: 7 }} value={this.state.contentValue} placeholder="请输入内容 必填"/>
-            </p>
-            <p>
-              <Input maxLength={20} onChange={this.nameChange} value={this.state.nameValue} placeholder="请输入名称 非必填"/>
-            </p>
-            <Button> 提 交 </Button>
-            <Button> 关闭 </Button>
+
+            <Form onSubmit={this.handleSubmit} className="login-form">
+              <Form.Item label="内容">
+                {getFieldDecorator('contentValue', {
+                  rules: [{ required: true, message: '请输入内容' }],
+                })(
+                  <Input.TextArea
+                    maxLength={200}
+                    rows={4}
+                    placeholder="请输入内容"
+                  />,
+                )}
+              </Form.Item>
+              <Form.Item label="姓名">
+                {getFieldDecorator('nameValue')(
+                  <Input
+                    maxLength={20}
+                    placeholder="请输入姓名(非必填)"
+                  />,
+                )}
+              </Form.Item>
+              <Form.Item>
+                <Button type="primary" htmlType="submit">
+                  提 交
+                </Button>
+                <Button onClick={this.addShow.bind(this)}> 关闭 </Button>
+              </Form.Item>
+            </Form>
           </div>
+        </div>
+
+        <div className="main">
         </div>
       </div>
     );
   }
 }
 
-export default wall;
+export default Form.create()(wall);
